@@ -1,0 +1,359 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 25%, #ede9fe 50%, #e0e7ff 75%, #dbeafe 100%);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06), 0 1px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 24px 80px -12px rgba(0, 0, 0, 0.15), 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Smooth transitions */
+button {
+  transition: all 0.15s ease;
+}
+
+.event-block-hover {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease;
+}
+.event-block-hover:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+  z-index: 40 !important;
+}
+
+/* Hide number input spinners for custom time inputs */
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.no-spinner {
+  -moz-appearance: textfield;
+}
+
+/* Drawer slide-in animation */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Markdown notes rendering */
+.prose-notes ul {
+  list-style: disc;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.prose-notes ol {
+  list-style: decimal;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.prose-notes li {
+  margin: 0.125rem 0;
+}
+
+.prose-notes ul.contains-task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose-notes li.task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.prose-notes li.task-list-item input[type="checkbox"] {
+  margin-top: 0.2rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  accent-color: #10b981;
+  pointer-events: none;
+}
+
+.prose-notes strong {
+  font-weight: 600;
+  color: rgba(31, 41, 55, 0.9);
+}
+
+.prose-notes em {
+  font-style: italic;
+}
+
+.prose-notes code {
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.prose-notes p {
+  margin: 0.2rem 0;
+}
+
+.prose-notes a {
+  color: #10b981;
+  text-decoration: underline;
+}
+
+/* Rich text editor styles */
+.rich-editor-wrapper {
+  position: relative;
+}
+
+.rich-editor-content {
+  outline: none;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.rich-editor-content.is-empty::before {
+  content: attr(data-placeholder);
+  color: rgba(156, 163, 175, 0.6);
+  pointer-events: none;
+  float: left;
+  height: 0;
+  font-size: 0.75rem;
+}
+
+.rich-editor-content p {
+  margin: 0.15rem 0;
+}
+
+.rich-editor-content ul {
+  list-style: disc;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.rich-editor-content ol {
+  list-style: decimal;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.rich-editor-content li {
+  margin: 0.1rem 0;
+}
+
+.rich-editor-content li p {
+  margin: 0;
+}
+
+.rich-editor-content ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+}
+
+.rich-editor-content ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.rich-editor-content ul[data-type="taskList"] li > label {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.rich-editor-content ul[data-type="taskList"] li > label input[type="checkbox"] {
+  width: 0.75rem;
+  height: 0.75rem;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.rich-editor-content ul[data-type="taskList"] li > div {
+  flex: 1;
+  min-width: 0;
+  outline: none;
+  min-height: 1.2em;
+  cursor: text;
+}
+
+.rich-editor-content ul[data-type="taskList"] li > div p {
+  margin: 0;
+}
+
+.rich-editor-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  margin: 0.25rem 0;
+}
+
+.rich-editor-content strong {
+  font-weight: 600;
+}
+
+.rich-editor-content em {
+  font-style: italic;
+}
+
+/* Rendered rich notes in todo items */
+.prose-rich-notes ul {
+  list-style: disc;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.prose-rich-notes ol {
+  list-style: decimal;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+
+.prose-rich-notes li {
+  margin: 0.125rem 0;
+}
+
+.prose-rich-notes ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.2rem 0;
+}
+
+.prose-rich-notes ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  margin: 0.1rem 0;
+}
+
+.prose-rich-notes ul[data-type="taskList"] li label {
+  display: flex;
+  align-items: center;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.prose-rich-notes ul[data-type="taskList"] li label input[type="checkbox"] {
+  width: 0.7rem;
+  height: 0.7rem;
+  accent-color: #10b981;
+}
+
+.prose-rich-notes ul[data-type="taskList"] li div {
+  flex: 1;
+}
+
+.prose-rich-notes ul[data-type="taskList"] li div p {
+  margin: 0;
+}
+
+.prose-rich-notes img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  margin: 0.25rem 0;
+}
+
+.prose-rich-notes p {
+  margin: 0.2rem 0;
+}
+
+.prose-rich-notes strong {
+  font-weight: 600;
+  color: rgba(31, 41, 55, 0.9);
+}
+
+.prose-rich-notes em {
+  font-style: italic;
+}
