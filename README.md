@@ -14,8 +14,8 @@
 </p>
 
 <div style="display:flex; gap: 16px; padding: 0 16px;">
-    <img src="docs/images/timebloom-month.png" style="width:calc(50vw - 24px); height:auto;"/>
-    <img src="docs/images/timebloom-static.png" style="width:calc(50vw - 24px); height:auto;"/>
+    <img src="docs/images/timebloom-month.png" style="width:calc(50% - 24px); height:auto;"/>
+    <img src="docs/images/timebloom-static.png" style="width:calc(50% - 24px); height:auto;"/>
 </div>
 
 
@@ -31,12 +31,12 @@ TimeBloom 解决的是工作记录散落的问题：计划在日历里、待办�
 
 <div style="display:flex; gap:16px; padding: 0 16px;">
     <div style="display:flex; gap: 8px; align-items: center;">
-        <img src="docs/images/timebloom-git.png" style="width: calc(25vw - 14px); height: auto;"/>
-        <img src="docs/images/timebloom-lark.png" style="width: calc(25vw - 14px); height: auto;"/>
+        <img src="docs/images/timebloom-git.png" style="width: calc(25% - 14px); height: auto;"/>
+        <img src="docs/images/timebloom-lark.png" style="width: calc(25% - 14px); height: auto;"/>
     </div>
     <div style="display: flex; gap: 8px;">
-        <img src="docs/images/timebloom-todo-list.png"style="width: calc(25vw - 14px); height: auto;"/>
-        <img src="docs/images/timebloom-todo-new.png" style="width: calc(25vw - 14px); height: auto;"/>
+        <img src="docs/images/timebloom-todo-list.png"style="width: calc(25% - 14px); height: auto;"/>
+        <img src="docs/images/timebloom-todo-new.png" style="width: calc(25% - 14px); height: auto;"/>
     </div>
 </div>
 
