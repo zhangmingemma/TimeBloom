@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/*
+
+# Build output
+dist/*
+release/*
+
+# Electron builder cache
+.electron-builder-cache/
+
+# macOS
+.DS_Store
+*.pem
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+.claude/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# TypeScript
+*.tsbuildinfo
